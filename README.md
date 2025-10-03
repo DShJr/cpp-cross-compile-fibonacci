@@ -25,20 +25,36 @@ The program calculates and prints the first five Fibonacci numbers. `std::cin.ge
 ```cpp
 #include <iostream>
 
+// *Windows only* - sets the console output codepage to UTF-8 (65001)
+#ifdef _WIN32
+#include <windows.h>
+void set_utf8_console() {
+    // Set the console output codepage to UTF-8
+    SetConsoleOutputCP(65001);
+}
+#else
+void set_utf8_console() {}
+#endif
+
 int main() {
+    // Call the console setup function
+    set_utf8_console();
+
+    // Calculate Fibonacci numbers
     double f1 = 0.0;
     double f2 = 1.0;
     double f3 = f1 + f2;
     double f4 = f2 + f3;
     double f5 = f3 + f4;
     
+    // Output the calculated numbers to the console
     std::cout << "Fibonacci number 1: " << f1 << std::endl;
     std::cout << "Fibonacci number 2: " << f2 << std::endl;
     std::cout << "Fibonacci number 3: " << f3 << std::endl;
     std::cout << "Fibonacci number 4: " << f4 << std::endl;
     std::cout << "Fibonacci number 5: " << f5 << std::endl;
 
-    // Pause to prevent the window from closing immediately
+    // Add a pause so the window doesn't close immediately
     std::cout << "Press Enter to close the window..." << std::endl;
     std::cin.get();
 
@@ -142,20 +158,36 @@ FIBONACCI_CROSS/
 ```cpp
 #include <iostream>
 
+// *Только для Windows* - устанавливает кодовую страницу консоли на UTF-8 (65001)
+#ifdef _WIN32
+#include <windows.h>
+void set_utf8_console() {
+    // Установить кодовую страницу вывода консоли в UTF-8
+    SetConsoleOutputCP(65001);
+}
+#else
+void set_utf8_console() {}
+#endif
+
 int main() {
+    // Вызвать функцию настройки консоли
+    set_utf8_console();
+
+    // Вычисляем число Фибоначчи
     double f1 = 0.0;
     double f2 = 1.0;
     double f3 = f1 + f2;
     double f4 = f2 + f3;
     double f5 = f3 + f4;
     
+    // Выводим найденные числа в консоль
     std::cout << "Fibonacci number 1: " << f1 << std::endl;
     std::cout << "Fibonacci number 2: " << f2 << std::endl;
     std::cout << "Fibonacci number 3: " << f3 << std::endl;
     std::cout << "Fibonacci number 4: " << f4 << std::endl;
     std::cout << "Fibonacci number 5: " << f5 << std::endl;
 
-    // Добавляем паузу, чтобы окно не закрывалось сразу
+    // Добавим паузу, чтобы окно не закрывалось сразу
     std::cout << "Нажмите Enter, чтобы закрыть окно..." << std::endl;
     std::cin.get();
 
